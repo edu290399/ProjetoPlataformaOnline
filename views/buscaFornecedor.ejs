@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>RegistroFornecedores</title>
+			<link rel="stylesheet" type="text/css" href="css/buscaGeral.css">
+
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Registros de Fornecedores</h2>
+
+		<table>
+			
+			<tr>
+				<th>ID</th>
+				<th>Fornecedor</th>
+				<th>CNPJ</th>
+				<th>Dados Bancários</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Endereco</th>
+               
+				
+			</tr>
+			<% if(fornecedor){ %>
+			<% for(var i = 0; i < fornecedor.length; i++){ %>
+				<tr>
+
+					<td>
+						<form action = '/editForn' method = 'post'>
+							<input class = 'id' id='<%=fornecedor[i].ID%>' type='submit' name='Id' value='<%= fornecedor[i].ID %>'>
+						</form>
+					</td>
+					<td><%= fornecedor[i].nome %></td>
+					<td><%= fornecedor[i].cnpj%></td>
+					<td><%= fornecedor[i].dadosBancarios%></td>
+                    <td><%= fornecedor[i].telefone%></td>
+                    <td><%= fornecedor[i].email%></td>
+                    <td><%= fornecedor[i].endereco%></td>
+                    
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>

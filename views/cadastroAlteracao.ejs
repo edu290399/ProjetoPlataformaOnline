@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>CadastroAlteracao</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+		
+	</head>
+	
+	<body>
+		<div>
+			<br />
+			<br />
+
+			<form autocomplete="off" action='/red' method='get'>
+				<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+			</form>
+				<h2>Registro de Alteração</h2>
+		
+		<% if(validacao.length>0){ %>
+			<div id="erro">
+			<%= validacao[0].msg %>
+		</div>
+		<% } %>	
+
+        <form autocomplete="off" action='/submitAlteracao' method='post' encType="multipart/form-data">
+            
+			<input id='placa' value='<%=cadastroAlteracao.placa%>' name='placa' placeholder='Placa do Veiculo'  oninput="M_placa(this)"></input>
+            <input id='descricao' value='<%=cadastroAlteracao.descricao%>' name='descricao' placeholder='Descrição'></input>
+			<label class="control-label">Select File</label>
+			<input name="avatar2" id="input-1" type="file" class="file">
+			<button type='submit' >Enviar</button>
+			
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html>

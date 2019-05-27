@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Cadastro Fornecedor</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroFuncionario.css">
+
+	</head>
+	
+	<body>
+		<div>
+			<br />
+			<br />
+		
+	
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+	<h2>Cadastro de Fornecedor</h2>
+
+	<% if(validacao.length>0){ %>
+		<div ID="erro">
+		<%= validacao[0].msg %>
+	</div>
+	<% } %>	
+		<form autocomplete="off" action='/submitFornecedor' method='post'>
+            <input id='nome' name='nome' value= "<%= cadastroFornecedor.nome %>" placeholder='Nome do Fornecedor' oninput="M_size(this, 50)" ></input>
+
+			<input id='cnpj' name='cnpj' value= "<%= cadastroFornecedor.cnpj %>" placeholder='CNPJ' oninput="M_cnpj(this)"></input>
+
+            <input id='dadosBancarios' name='dadosBancarios' value= "<%= cadastroFornecedor.dadosBancarios %>" placeholder='Dados Bancários'></input>
+
+            <input id='telefone' name='telefone'value= "<%= cadastroFornecedor.telefone %>" placeholder='Telefone' oninput="M_tel(this)"></input>
+
+            <input id='email' name='email' value= "<%= cadastroFornecedor.email %>" placeholder='E-mail' ></input>
+
+			<input id='endereco' name='endereco' value= "<%= cadastroFornecedor.endereco %>" placeholder='Endereço' oninput="M_sizebig(this,100)"></input>
+			
+			<button type='submitFornecedor' >Enviar</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html> 

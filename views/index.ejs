@@ -1,0 +1,28 @@
+<hmtl>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/iconeCocaine.ico" >
+</head>
+
+<body>
+	<div>
+		<h1>Login</h1>
+		<% if(validacao.length>0){%>
+			<h2><%=validacao[0].msg%></h2>
+		<%}%>
+
+		<% if(err != ''){%>
+			<h2><%=err%></h2>
+		<%}%>
+
+		<form autocomplete="off" action="/login" method="post" >
+			<input id = "id" name = "id" placeholder ="ID">
+			<input id = "rg" type = "password" name = "rg" placeholder = "RG" oninput="M_rg(this)">
+			<button type="submit" id="enviarLogin" value="Enviar">Entrar</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+</body>
+
+</hmtl>

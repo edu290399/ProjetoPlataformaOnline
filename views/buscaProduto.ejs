@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>RegistroProdutos</title>
+			<link rel="stylesheet" type="text/css" href="css/buscaGeral.css">
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Registro de Produtos</h2>
+
+		<table>
+			
+			<tr>
+				<th>Código</th>
+				<th>Nome</th>
+				<th>Marca</th>
+				<th>Fornecedor</th>
+				<th>Garantia</th>
+				<th>Codigo de Barras</th>
+				<th>Valor</th>
+				<th>Descricao</th>
+				<th>Quantidade</th>
+				<th>Valor Total</th>
+
+            
+				
+			</tr>
+			<% if(produto){ %>
+			<% for(var i = 0; i < produto.length; i++){ %>
+				<tr>
+
+					<td>
+						<form action = '/editP' method = 'POST'>
+							<input class = 'id' id='<%=produto[i].cod%>' type='submit' name='cod' value='<%= produto[i].cod %>'>
+						</form>
+					</td>
+					<td><%= produto[i].nome%></td>
+					<td><%= produto[i].marca %></td>
+					<td><%= produto[i].fornecedor %></td>
+					<td><%= produto[i].garantia %></td>
+					<td><%= produto[i].cdbarra%></td>
+					<td><%= produto[i].valor%></td>
+					<td id="descProduto"><%= produto[i].descricao%></td>
+					<td><%= produto[i].quantidade%></td>
+					<td><%= (produto[i].quantidade)*(produto[i].valor) %></td>
+					
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Eventos</title>
+			<link rel="stylesheet" type="text/css" href="css/buscaAgendamento.css">
+
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>EVENTOS</h2>
+
+		<table>
+			
+			<tr>
+				<th>ID</th>
+				<th>Data do Evento</th>
+				<th>Hora do Evento</th>
+				<th>Descrição</th>
+				
+				
+				
+			</tr>
+			<% if(evento){ %>
+			<% for(var i = 0; i < evento.length; i++){ %>
+				<tr>
+
+						<td>
+								<form action = '/editE' method = 'post'>
+									<input class = 'id' id='<%=evento[i].ID%>' type='submit' name='ID' value='<%= evento[i].ID %>'>
+								</form>
+							</td>
+					<td><%= evento[i].dataEvento.getDate()%>/<%= evento[i].dataEvento.getMonth()+1%>/<%= evento[i].dataEvento.getFullYear()%></td>
+					<td><%= evento[i].horaEvento%></td>
+					<td><%= evento[i].descEvento%></td>
+					
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>

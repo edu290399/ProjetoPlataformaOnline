@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>RegistroClientes</title>
+			<link rel="stylesheet" type="text/css" href="css/buscaGeral.css">
+
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Registros de Clientes Físicos</h2>
+
+		<table>
+			
+			<tr>
+				<th>ID</th>
+				<th>Cliente</th>
+				<th>CPF</th>
+				<th>RG</th>
+				<th>Data de nascimento</th>
+				<th>Telefone(1)</th>
+				<th>Telefone(2)</th>
+				<th>Telefone(3)</th>
+				<th>Endereço</th>
+				
+			</tr>
+			<% if(cliente){ %>
+			<% for(var i = 0; i < cliente.length; i++){ %>
+				
+				<tr>
+					
+					<td>
+						<form action = '/edit' method = 'post'>
+							<input class = 'id' id='<%=cliente[i].ID%>' type='submit' name='id' value='<%= cliente[i].ID %>'>
+						</form>
+					</td>
+					<td><%= cliente[i].nome %></td>
+					<td><%= cliente[i].cpf%></td>
+					<td><%= cliente[i].rg%></td>
+					<td><%= cliente[i].datanascimento%></td>
+					<td><%= cliente[i].telefone%></td>
+					<td><%= cliente[i].telefone2%></td>
+					<td><%= cliente[i].telefone3%></td>
+					<td><%= cliente[i].endereco%></td>
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>

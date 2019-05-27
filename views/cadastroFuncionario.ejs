@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Cadastro Funcionario</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroFuncionario.css">
+
+	</head>
+	
+	<body>
+		<div>
+			<br />
+			<br />
+		
+		<!--
+		<% if(validacao.length>0){ %>
+			<div id="erro">
+			<%= validacao[0].msg %>
+		</div>
+		<% } %>	
+	-->
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+	<h2>Cadastro de Funcionário</h2>
+
+	<% if(validacao.length>0){ %>
+		<div id="erro">
+		<%= validacao[0].msg %>
+	</div>
+	<% } %>	
+		<form autocomplete="off" action='/submitFuncionario' method='post'>
+			<input id='nome' name='nome' value= "<%= cadastroFuncionario.nome %>" placeholder='Nome Completo' oninput="M_size(this, 50)" ></input>
+			
+			<input id='cargo' name='cargo' value= "<%= cadastroFuncionario.cargo %>" placeholder='Cargo' oninput="M_size(this, 30)" ></input>
+
+			<input id='cpf' name='cpf' value= "<%= cadastroFuncionario.cpf %>" placeholder='CPF' oninput="M_cpf(this)"></input>
+
+			<input id='rg' name='rg'value= "<%= cadastroFuncionario.rg %>" placeholder='RG' oninput="M_rg(this)"></input>
+
+            <input id='datanascimento' name='datanascimento' value= "<%= cadastroFuncionario.datanascimento %>" placeholder='Data de Nascimento' oninput="M_datanas(this)"></input>
+
+            <input id='ncarttrab' name='ncarttrab' value= "<%= cadastroFuncionario.ncarttrab %>" placeholder='N° da Carteira de Trabalho' oninput="M_size_number(this,15)"></input>
+
+            <input id='dataadmissao' name='dataadmissao' value= "<%= cadastroFuncionario.dataadmissao %>" placeholder='Data de Admissão' oninput="M_datanas(this)"></input>
+
+            <input id='horttrab' name='horttrab' value= "<%= cadastroFuncionario.horttrab %>" placeholder='Hora de Trabalho' oninput="M_hora(this)"></input>
+
+			<input id='salario' name='salario' value= "<%= cadastroFuncionario.salario %>" placeholder='Salário' oninput="M_size(this, 10)"></input>
+
+			 <input id='dadosBancarios' name='dadosBancarios' value= "<%= cadastroFuncionario.dadosBancarios %>" placeholder='Dados Bancários'></input>
+
+            <input id='telefone' name='telefone'value= "<%= cadastroFuncionario.telefone %>" placeholder='Telefone' oninput="M_tel(this)"></input>
+
+            <input id='telefone2' name='telefone2' value= "<%= cadastroFuncionario.telefone2 %>" placeholder='Telefone' oninput="M_tel(this)"></input>
+
+			<input id='endereco' name='endereco' value= "<%= cadastroFuncionario.endereco %>" placeholder='Endereço' oninput="M_sizebig(this,100)"></input>
+			
+			<button type='submitFuncionario' >Enviar</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html>

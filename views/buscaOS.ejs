@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>RegistroOS</title>
+			<link rel="stylesheet" type="text/css" href="css/buscaGeral.css">
+		</head>
+	<body>
+
+	<div>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Ordem de Serviço</h2>
+
+		<table>
+			
+			<tr>
+				<th>ID</th>
+				<th>Cliente</th>
+				<th>Placa</th>
+				<th>Data</th>
+			
+				
+			</tr>
+			
+			<% if(OS){ %>
+			<% for(var i = 0; i < OS.length; i++){ %>
+				<tr>
+						<td><form action = '/buscaID' method = 'post'>
+							<input type = 'submit' id="id" name = 'id' value = '<%=OS[i].id%>'>
+						</form></td>
+						<td><%= OS[i].cliente %></td>
+						<td><%= OS[i].placa %></td>
+						<td><%= OS[i].datacriacao %></td>
+						
+					
+				</tr>
+			<% } } %>
+
+		</table>
+	</div>
+
+	</body>
+</html>

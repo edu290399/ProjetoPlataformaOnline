@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Venda</title>
+			<link rel="stylesheet" type="text/css" href="css/vendas.css">
+			<script src="jquery/jquery.js" type="text/javascript"></script>
+
+
+			<script type="text/javascript">
+				$(function(){
+
+					
+					$('#adicionarcampo').click(function(e) {//Evento acionado ao clicar para adicionar campo
+						e.preventDefault();
+
+						//Adicionar os campos Produto e quantidade
+						$('#inputs').append('<spam><input type="text" class="produto"  name="produto" placeholder = "Código do Produto" ></input> <input class="desconto" type="number" name="desconto" placeholder="Desconto (%)" min="0" max="<%=desconto.descontoMax%>"></input> <input type = "number" class="quantidade" name="quantidade" id="qntdadd"  placeholder = "Quantidade" value = "1" ></input>  <button type="button" id="removebutton" class="remove_field">Remover Campo</button></spam>');
+
+					});
+
+					//Link para remover o campo
+					$(".inputs").on("click", ".remove_field", function(e) {
+						e.preventDefault();
+						$(this).parent('spam').remove();
+					});
+
+
+				
+
+					$("#calcular").click(function(){
+						var produto = $("input.produto");//inputs dos produtos
+						var quant = $("input.quantidade");//inputs das quantidades
+						var quantidade = [];//Quantidade dos produtos
+						var cod = [];//Códigos dos produtos
+						var preco = 0.0;//Preço total a ser exibido
+						var I=0;//Contador para a quantidade de inputs
+						var controle; // Verificar se encontrou o produto no BD
+						var desconto = $("input.desconto"); //desconto efetuado
+						<% var J = 0 %>
+
+						for(var I  = 0; I<quant.length; I++)
+						{	//Vetor com as quantidades informadas
+							quantidade[I] =quant[I].value;
+						}
+						for(var I  = 0; I<desconto.length; I++)
+						{	//Vetor com as quantidades informadas
+							desconto[I] =desconto[I].value;
+						}
+						for(var I  = 0; I<produto.length; I++)
+						{	//Vetor com os códigos dos produtos informados
+							cod[I] =produto[I].value;
+						}
+						$(".erro").remove();//Remove o erro antigo
+						for(I=0;I<cod.length;I++ ){//Percorre os códigos
+							
+							controle = 0;
+							<% for(J=0; J<venda.length; J++){%>//Ver se os códigos estão no BD
+								if(<%=venda[J].cod%> == cod[I]){
+									controle = 1;
+									if(<%=venda[J].quantidade%> >= quantidade[I]){//Se o código estiver no BD atualiza o preço
+										preco += <%=(venda[J].valor)%>*(1-parseFloat(desconto[I])/100)*parseInt(quantidade[I]);
+										controle = 2;
+									}
+								}
+							<%}%>
+							if(controle == 0)
+							{//Se não encontrar o produto no BD
+								$("#total").append("<h1 class = 'erro'>Produto "+cod[I]+" não encontrado</h2>");//Informa o produto com erro
+							}
+							else if(controle == 1){
+								$("#total").append("<h1 class = 'erro'>Quantidade do produto "+cod[I]+" não disponível</h2>");//Informa o produto com erro
+							}
+							
+						}
+						$("#preco").remove();//Remove o preço antigo
+						$("#total").append("<h2 id = 'preco'>R$ "+preco+"</h2>");//Informa o preço
+					})
+				})
+			</script>
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+
+	<form autocomplete="off" action='/desconto' method='get'>
+		<input type="submit" class="defDesc" value="Definir desconto" name="HOME"  <%if(cargo!='PROPRIETARIO'){%>disabled style='color:red '<%}%>></input>
+	</form>
+
+		<h3>Venda</h3>
+		<h4>*Calcule o total antes de enviar*</h4>
+		<form autocomplete="off" action='/submitVenda' method='post'>
+			<div class = 'inputs' id='inputs'>
+				<spam>
+				<input id='produto' class='produto' name='produto' placeholder='Código do produto'></input>
+				<input class='desconto'type='number' name='desconto' placeholder='Desconto (%)' min="0" max="<%=desconto.descontoMax%>"></input>
+				<input id='quantidade' class='quantidade' name='quantidade' type = 'number' value = '1' placeholder='Qntd'></input>
+				<button type="button" id="adicionarcampo">Adicionar Campo</a>
+				</spam>
+			</div>
+			<button type='submit' >Enviar</button>
+		</form>
+		<div id='total'>
+			<h5>Total: </h5>
+		</div>
+		<button id='calcular'>Calcular</button>
+	</div>
+	
+	</body>
+</html>

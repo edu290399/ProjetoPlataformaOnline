@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>CadastroDeEventos</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroFuncionario.css">
+
+    </head>
+    
+    <body>
+		<div>
+			<br />
+			<br />
+		
+	
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+	<h2>Cadastro de Eventos</h2>
+
+	<% if(validacao.length>0){ %>
+		<div id="erro">
+		<%= validacao[0].msg %>
+	</div>
+    <% } %>	
+    
+	<form autocomplete="off" action='/submitEvento' method='post'>
+	 ---Data e hora do Evento---
+        <input id='dataEvento' type="Date" name='dataEvento' value= "<%= eventEvento.dataEvento %>"  oninput="M_size(this, 9)" ></input>
+
+        <input id='horaEvento' type="time" name='horaEvento' value= "<%= eventEvento.horaEvento%>" ></input>
+
+        <input id='descEvento' name='descEvento' type="text" value= "<%= eventEvento.descEvento %>" placeholder='Descrição' ></input>
+
+        <button type='submitEvento'> Enviar </button>
+    </form>
+</div>
+<script type="text/javascript" src="js/mask.js"></script>
+</body>
+</html>

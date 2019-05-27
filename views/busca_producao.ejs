@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Produção Funcionários</title>
+		<link rel="stylesheet" type="text/css" href="css/lucro.css">
+
+	</head>
+	<body>
+		<div>
+				<form autocomplete="off" action='/red' method='get'>
+					<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+				</form>
+			<h2>Comissão dos Funcionários</h2>
+            <form action = '/busca_producao' method= 'post'>
+                <input name='funcionario' placeholder = 'ID do funcionário'>
+				<input name = 'periodo_inicio' value='Data inicial' type = 'date'>
+				<input name = 'periodo_final' value='Data final' type = 'date'>
+				<input class="relatorio" id="buscaRel" type=submit value="Busca">
+			</form>
+	</div>
+	</body>
+	
+	
+</html>

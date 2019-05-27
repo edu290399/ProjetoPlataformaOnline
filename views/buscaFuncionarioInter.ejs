@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>BuscaFuncionario</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+		
+	</head>
+	
+	<body>
+		<div>
+			<br />
+			<br />
+	<form autocomplete="off" action='/red' method='GET'>	
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Busca Direta de Funcionário</h2>
+        <form autocomplete="off" action='/buscaFuncionarioInter' method='POST'>
+            
+			<input id='cpfFuncionarioBuscado' name='cpf' placeholder='CPF Buscado'  oninput="M_cpf(this)"></input>
+			
+			<button type='submit' >Enviar</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html>

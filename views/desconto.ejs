@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Definir Desconto</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+
+	</head>
+	<body>
+		<div>
+			<br />
+			<br />
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Definir Desconto Máximo</h2>
+
+
+		<form autocomplete="off" action='/submitDesconto' method='post'>
+			<input id='desconto' name='descontoMax' value= "" placeholder='Desconto máximo (%)' oninput="M_number(this, 50)" ></input>
+			<button type='submit' >Enviar</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>PagamentoDeContas</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroFuncionario.css">
+
+    </head>
+    
+    <body>
+		<div>
+			<br />
+			<br />
+		
+	
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+	<h2>Cadastro de Contas</h2>
+
+	<% if(validacao.length>0){ %>
+		<div id="erro">
+		<%= validacao[0].msg %>
+	</div>
+    <% } %>	
+    
+	<form autocomplete="off" action='/submitConta' method='post'>
+	 ---Data de Vencimento da Conta---
+        <input id='dataConta' type="Date" name='dataConta' value= "<%= eventConta.dataConta %>"  oninput="M_size(this, 9)" ></input>
+
+        <input id='valorConta' name='valorConta' value= "<%= eventConta.valorConta  %>" placeholder='Valor da Conta' ></input>
+
+        <input id='descConta' name='descConta' type="text" value= "<%= eventConta.descConta %>" placeholder='Descrição' ></input>
+        <button type='submitConta'> Enviar </button>
+    </form>
+</div>
+<script type="text/javascript" src="js/mask.js"></script>
+</body>
+</html>

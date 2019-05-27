@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Agendamento</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroFuncionario.css">
+
+    </head>
+    
+    <body>
+		<div>
+			<br />
+			<br />
+		
+	
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+	<h2>Agendamento</h2>
+
+	<% if(validacao.length>0){ %>
+		<div id="erro">
+		<%= validacao[0].msg %>
+	</div>
+    <% } %>	
+    
+	<form autocomplete="off" action='/submitAgendamento' method='post'>
+	 ---Data e hora do Agendamento---
+        <input id='dataAgen' type="Date" name='dataAgen' value= "<%= eventAgen.dataAgen %>"  oninput="M_size(this, 9)" ></input>
+
+		<input id='horaAgen' type="time" name='horaAgen' value= "<%= eventAgen.horaAgen%>" ></input>
+
+        <input id='respAgen' name='respAgen' value= "<%= eventAgen.respAgen  %>" placeholder='Responsável' ></input>
+
+        <input id='descAgen' name='descAgen' type="text" value= "<%= eventAgen.descAgen %>" placeholder='Descrição' ></input>
+        
+        <button type='submitAgendamento' >Enviar</button>
+    </form>
+</div>
+<script type="text/javascript" src="js/mask.js"></script>
+</body>
+</html>

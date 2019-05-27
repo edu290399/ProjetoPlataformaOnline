@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Relatórios</title>
+		<link rel="stylesheet" type="text/css" href="css/lucro.css">
+
+	</head>
+	<body>
+		<div>
+				<form autocomplete="off" action='/red' method='get'>
+					<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+				</form>
+			<h2>Relatório</h2>
+			<form action = '/submitLucro' method= 'post'>
+				<input class="relatorio" name = 'diario' value='Diário' type = 'submit'>
+				<input class="relatorio" name = 'semanal' value='Semanal' type = 'submit'>
+				<input class="relatorio" name = 'mensal' value='Mensal' type = 'submit'>
+			</form>
+
+			<form action = '/pagamento' method='get'>
+				<input class="relatorio" type='submit' value="Pagamentos">
+			</form>
+	</div>
+	</body>
+	
+	
+</html>

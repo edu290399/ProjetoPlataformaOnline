@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Cadastro Cliente</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+
+	</head>
+	<body>
+		<div>
+			<br />
+			<br />
+			<!--
+			<% if(validacao.length>0){ %>
+				 <% for(var I=0; I< validacao.length; I++){ %>
+					<%= validacao[I].msg %> 
+					<br/>
+					<% } %>
+			<% } %> 
+			-->
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Controle de Clientes</h2>
+
+		<% if(validacao.length>0){ %>
+			<div id="erro">
+			<%= validacao[0].msg %>
+		</div>
+		<% } %>	
+
+
+		<form autocomplete="off" action='/editCliente' method='post'>
+
+			<input id='id' readonly="true" name='id' value= "<%= cadastroCliente.ID %>" oninput="M_size(this, 10)" ></input>
+
+			<input id='nome' readonly="true" name='nome' value= "<%= cadastroCliente.nome %>" placeholder='Nome Completo' oninput="M_size(this, 50)" ></input>
+
+			<input id='cpf' name='cpf' readonly="true" value= "<%= cadastroCliente.cpf %>" placeholder='CPF' oninput="M_cpf(this)"></input>
+			
+			<input id='rg' name='rg' readonly="true" value= "<%= cadastroCliente.rg %>" placeholder='RG' oninput="M_rg(this)"></input>
+			
+			<input id='dtanas' name='datanascimento' readonly="true" value= "<%= cadastroCliente.datanascimento %>" placeholder='Data de Nascimento' oninput="M_datanas(this)"></input>
+			
+			<input id='telefone1' name='telefone' value= "<%= cadastroCliente.telefone %>" placeholder='Telefone(1)' oninput="M_tel(this)"></input>
+			
+			<input id='telefone2' name='telefone2' value= "<%= cadastroCliente.telefone2 %>" placeholder='Telefone(2)' oninput="M_tel(this)"></input>
+
+			<input id='telefone3' name='telefone3' value= "<%= cadastroCliente.telefone3 %>" placeholder='Telefone(3)' oninput="M_tel(this)"></input>
+			
+			<input id='endereco' name='endereco' value= "<%= cadastroCliente.endereco %>" placeholder='Endereço'></input>
+			
+			<button type='submitCliente' >Enviar</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html>

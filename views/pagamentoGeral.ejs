@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset = 'utf-8' />
+        <title>Pagamento</title>
+        <link rel="stylesheet" type="text/css" href="css/buscaGeral.css">
+    </head>
+    <body>
+        <form autocomplete="off" action='/red' method='get'>
+            <br>
+            
+            <h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+        </form>
+            <h2>Pagamento dos Funcionários</h2>
+
+        <table>
+            <tr>
+                <th>Funcionário</th>
+                <th>Salário</th>
+                <th>Comissão(R$)</th>
+                <th>Comissão(%)</th>
+                <th>Total</th>
+                <th>Dados Bancários</th>
+            </tr>
+
+           
+                <% if(funcionario){%>
+                    <% for(var I = 0; I<funcionario.length; I++){%>
+                        <tr>
+                            <td><%=funcionario[I].nome%></td>
+                            <td><%=funcionario[I].salario%></td>
+                            <td><%=total[I]-funcionario[I].salario%></td>
+                            <td><%=comissao[I]%>%</td>
+                            <td>R$<%=total[I]%></td>
+                            <td><%=funcionario[I].dadosBancarios%></td>
+                        </tr>
+                    <% } %>
+                <% } %>
+        </table>
+    </body>
+</html>

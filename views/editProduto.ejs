@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Cadastro Produto</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+
+	</head>
+	<body>
+		<div>
+			<br />
+			<br />
+					<!--
+		<% if(validacao.length>0){ %>
+			<div id="erro">
+			<%= validacao[0].msg %>
+		</div>
+		<% } %>
+	-->
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Controle de Produto</h2>
+
+		<form autocomplete="off" action='/editProduto' method='post'>
+
+			<input id='cod' readonly="true" name='cod' value= "<%= cadastroProduto.cod %>" placeholder='Código' oninput="M_size(this)"></input>
+
+			<input id='nome' readonly="true" name='nome' value= "<%= cadastroProduto.nome %>" placeholder='Nome do Produto' oninput="M_size(this)"></input>
+
+			<input id='marca' readonly="true" name='marca' value= "<%= cadastroProduto.marca %>" placeholder='Marca' oninput="M_size(this)"></input>
+
+			<input id='fornecedor'  name='fornecedor' value= "<%= cadastroProduto.fornecedor %>" placeholder='Fornecedor'></input>
+
+			<input id='garantia' readonly="true" name='garantia' value= "<%= cadastroProduto.garantia %>" placeholder='Garantia'></input>
+
+			<input id='cdbarra' readonly="true" name='cdbarra' value= "<%= cadastroProduto.cdbarra %>" placeholder='Codigo de Barras' oninput="M_size_number(this,15)"></input>
+
+            <input id='valor' name='valor' value= "<%= cadastroProduto.valor %>" placeholder='Valor' oninput="M_size(this)"></input>
+
+            <input id='descricao' name='descricao' value= "<%= cadastroProduto.descricao %>" placeholder='Descrição do Produto' width="150%" oninput="M_sizebig(this)"></input>
+
+			<button type='submitProduto' >Enviar</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html>

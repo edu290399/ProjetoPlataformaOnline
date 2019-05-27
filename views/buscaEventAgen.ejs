@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>RegistroDeAgendamentos</title>
+			<link rel="stylesheet" type="text/css" href="css/buscaAgendamento.css">
+
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Registros de Agendamentos</h2>
+
+		<table>
+			
+			<tr>
+				<th>ID</th>
+				<th>Data Prevista</th>
+				<th>Horário</th>
+				<th>Responsável</th>
+				<th>Descrição</th>
+				
+				
+			</tr>
+			<% if(agendamento){ %>
+			<% for(var i = 0; i < agendamento.length; i++){ %>
+				<tr>
+
+						<td>
+								<form action = '/editA' method = 'post'>
+									<input class = 'id' id='<%=agendamento[i].ID%>' type='submit' name='ID' value='<%= agendamento[i].ID %>'>
+								</form>
+							</td>
+					<td><%= agendamento[i].dataAgen.getDate()%>/<%= agendamento[i].dataAgen.getMonth()+1%>/<%= agendamento[i].dataAgen.getFullYear()%></td>
+					<td><%= agendamento[i].horaAgen%></td>
+					<td><%= agendamento[i].respAgen%></td>
+					<td><%= agendamento[i].descAgen%></td>
+					
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>

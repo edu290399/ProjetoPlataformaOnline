@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Registro de Cargos</title>
+			<link rel="stylesheet" type="text/css" href="css/buscaGeral.css">
+
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Registros de Cargos</h2>
+
+		<table>
+			
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Comissão</th>
+				<th>Ordem de Serviço</th>
+				<th>Venda</th>
+				<th>Cliente/Veículo</th>
+				<th>Produto/Fornecedor</th>
+				<th>Funcionário</th>
+				<th>Conta</th>
+                <th>Agendamento</th>
+                <th>Evento</th>
+				<th>Relatórios</th>
+				<th>Produção de Funcionários</th>
+				
+			</tr>
+			<% if(cargo){ %>
+			<% for(var i = 1; i < cargo.length; i++){ %>
+				
+				<tr>
+					
+					<td>
+						<form action = '/editCargo' method = 'post'>
+							<input class = 'id' id='<%=cargo[i].id%>' type='submit' name='id' value='<%= cargo[i].id %>'>
+						</form>
+					</td>
+				   <td><%=cargo[i].nome%></td>
+				   <td><%=cargo[i].comissao%>%</td>
+                   <% if (cargo[i].OS == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].venda == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].veiculo_cliente == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].fornecedor_produto == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].funcionario == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].conta == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].agendamento == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].evento == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].lucro == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+                   <% if (cargo[i].producao_funcionario == 1){%><td>SIM</td> <% }else {%><td>NÃO</td><%}%>
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>

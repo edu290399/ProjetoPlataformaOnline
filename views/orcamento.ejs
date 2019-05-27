@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Orçamento</title>
+			<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+			<script src="jquery/jquery.js" type="text/javascript"></script>
+			<script type="text/javascript">
+				$(function(){
+					$("#calcular").click(function(e){
+						e.preventDefault();
+						var preco = $("input.preco");
+						var produto = $("input.produto");//inputs dos produtos
+						var quant = $("input.quantidade");//inputs das quantidades
+						var desc = $("input.desconto");//inputs dos descontos
+
+						var quantidade = [];
+						var cod = [];//Códigos dos produtos
+						var desconto = [];
+						var valor = parseFloat(preco[0].value);//Preço total a ser exibido
+						var controle; // Verificar se encontrou o produto no BD
+						
+						for(var I  = 0; I<quant.length; I++)
+						{	//Vetor com as quantidades informadas
+							quantidade[I] =quant[I].value;
+						}
+						for(var I  = 0; I<produto.length; I++)
+						{	//Vetor com os códigos dos produtos informados
+							cod[I] =produto[I].value;
+						}
+						for(var I  = 0; I<produto.length; I++)
+						{	//Vetor com os descontos dos inputs
+							desconto[I] = desc[I].value;
+						}
+
+						$(".erro").remove();//Remove o erro antigo
+						$(".preco_produto").remove();
+						for(var I=0; I<cod.length; I++ ){//Percorre os códigos
+							controle = 0;
+							<% for( var J=0; J<produto.length; J++){%>//Ver se os códigos estão no BD
+								if(<%=produto[J].cod%> == cod[I]){
+									controle = 1;
+									if(<%=produto[J].quantidade%> >= quantidade[I]){//Se o código estiver no BD atualiza o preço
+										$('#total').append('<h3 class="preco_produto">Produto '+cod[I]+' ('+'<%=produto[J].nome%>'+')'+': R$'+<%=produto[J].valor%>+'</h3>')
+										valor += <%=(produto[J].valor)%>*parseInt(quantidade[I])*(1-(parseFloat(desconto[I])/100));
+										controle = 2;
+									}
+								}
+							<%}%>
+							if(controle == 0)
+							{//Se não encontrar o produto no BD
+								$("#total").append("<h2 class = 'erro'>Produto "+cod[I]+" não encontrado</h2>");//Informa o produto com erro
+							}
+							else if(controle == 1){
+								$("#total").append("<h2 class = 'erro'>Quantidade do produto "+cod[I]+" não disponível</h2>");//Informa o produto com erro
+							}
+							
+						}
+						$("#valor").remove();//Remove o preço antigo
+						$("#preco_total").remove();
+						$("#total").append("<input type='hidden' id='preco_total' name = 'total' value='"+valor.toFixed(2)+"'><h2 id = 'valor'>R$ "+valor.toFixed(2)+"</h2>");//Informa o preço
+					})
+				})
+			</script>
+
+<script type ="text/javascript">
+	$(function(){
+		var max_fields = 10;
+		var wrapper = $(".inputs");
+		var add_button = $("#adicionarcampo");
+
+
+		var x = 1;
+		$(add_button).click(function(e) {//Evento acionado ao clicar para adicionar campo
+			e.preventDefault();
+			if (x < max_fields) {
+				x++;
+				//Adicionar os campos Produto e quantidade
+				$(wrapper).append('<spam><input type="text" class="produto" id="produtoadd" name="produto" placeholder = "Código do Produto"> <input class="desconto"  type="number" name="desconto" placeholder="Desconto (%)" min="0" max="<%=desconto.descontoMax%>" > <input type = "number" class="quantidade" name="quantidade" id="qntdadd"  placeholder = "Quantidade" value = "1" > <button type="button" id="removebutton" class="remove_field">Remover Campo</button></spam><br>');
+			}
+
+		});
+
+		//Link para remover o campo
+		$(wrapper).on("click", ".remove_field", function(e) {
+			e.preventDefault();
+			$(this).parent('spam').remove();
+			x--;
+		});
+	});
+</script>
+		</head>
+	<body>
+		<br>
+		<br>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Orçamento</h2>
+
+		<form autocomplete="off" action='/emissao' method='post'>
+			<div class = 'inputs'>
+				<spam>
+				<input name = 'responsavel' placeholder = 'ID do responsável'>
+				<input id='problema' class='problema' name='problema' placeholder='Problema Constatado'></input>
+				<input id='preco' class='preco' name='preco' placeholder='Preço da Mão de Obra'></input>
+				<button type="button" id="adicionarcampo">Adicionar Campo</a>
+				</spam>
+			</div>
+			<div id='total'>
+				<h2>Total: </h2>
+			</div>
+			<button id='calcular'>Calcular</button>
+			<input class="option" type='submit' name='OS' value='Gerar OS'/>
+			<input class="option" id='emite' type='submit' name='emite' value='Emitir Orçamento'/>
+		</form>
+		
+	
+	<!--<script type="text/javascript" src="jquery/adicionaCampo.js"></script>-->
+	</body>
+</html>

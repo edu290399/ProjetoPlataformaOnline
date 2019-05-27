@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>RegistroAlteracoes</title>
+		
+			<link rel="stylesheet" type="text/css" href="css/buscaGeral.css">
+
+		
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Registros de Alterações de Veículos</h2>
+
+		<table>
+			
+			<tr>
+				<th>Id</th>
+				<th>Placa</th>
+				<th>Descrição</th>
+				<th>Imagem</th>
+				<th>Data do Registro</th>
+			</tr>
+
+			<% if(alteracao){ %>
+			<% for(var i = 0; i < alteracao.length; i++){ %>
+				
+				<td><%= alteracao	[i].id %></td>
+				<td><%= alteracao[i].placa %></td>
+				<td><%= alteracao[i].descricao %></td>
+				<%if(alteracao[i].imagem){%><td><a href='/uploads/<%= alteracao[i].imagem%>'><img src='/uploads/<%= alteracao[i].imagem %>', height='25%'></a></td><%} else{%><td></td><%}%>
+				<td><%= alteracao[i].data %></td>
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>
+			

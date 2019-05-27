@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<title>Lembretes</title>
+		<link rel="stylesheet" type="text/css" href="css/lembretes.css">
+		
+	</head>
+	<body>
+			<br>
+            <form autocomplete="off" action='/red' method='get'>
+                <h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+            </form>
+		<div>
+			
+			<form action = '/redi' method= 'post'>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				<div class="dropdown">
+					<input type="submit"  name= "CadastroEvento" class="main" value = "Eventos" <%if(acesso.evento!=1){%>disabled style='color:red '<%}%>></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="CadastroEvento" <%if(acesso.evento!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BuscaEvento" <%if(acesso.evento!=1){%>disabled style='color:red '<%}%>></input>
+					</div>
+				</div>
+
+				<div class="dropdown">
+					<input type="submit"  name= "CadastroConta" class="main" value = "Contas" <%if(acesso.conta!=1){%>disabled style='color:red '<%}%>></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="CadastroConta" <%if(acesso.conta!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BuscaConta" <%if(acesso.conta!=1){%>disabled style='color:red '<%}%>></input>
+					</div>
+				</div>
+
+				<div class="dropdown">
+					<input type="submit"  name= "CadastroAgendamento" class="main" value = "Agendamentos" <%if(acesso.agendamento!=1){%>disabled style='color:red '<%}%>></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="CadastroAgendamento" <%if(acesso.agendamento!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BuscaAgendamento" <%if(acesso.agendamento!=1){%>disabled style='color:red '<%}%>></input>
+					</div>
+                </div>
+            </form>
+        </div>
+        
+		</body>
+		<script type="text/javascript">
+				
+
+				if(window.Notification&&Notification.permission!=="denied"){
+				
+				<% if(agendamento){ %> 
+			      <%for(var i = 0; i < agendamento.length; i++){ %>
+				   
+					
+				     	 Notification.requestPermission(function(status){
+					     var n = new Notification('Agendamento Próximo', {
+						 body:  "<%=agendamento[i].descAgen%> em <%=agendamento[i].dataAgen.getDate()%>/<%=(agendamento[i].dataAgen.getMonth())+1%>/<%=agendamento[i].dataAgen.getFullYear()%> as <%=agendamento[i].horaAgen%>", 
+						 icon: 'css/AppThemes/AvisoManu.jpg'
+					      })
+				        })
+				  <% }%> 
+				 <% }%>
+				}    
+			
+
+			if(window.Notification&&Notification.permission!=="denied"){
+				
+				<% if(evento){ %> 
+			      <%for(var i = 0; i < evento.length; i++){ %>
+				   
+					//console.log(descConta)
+				     	 Notification.requestPermission(function(status){
+					     var n = new Notification('Evento próximo', {
+						 body:  "<%=evento[i].descEvento%> em <%=evento[i].dataEvento.getDate()%>/<%=(evento[i].dataEvento.getMonth())+1%>/<%=evento[i].dataEvento.getFullYear()%> as <%=evento[i].horaEvento%>", 
+						 icon: 'css/AppThemes/AvisoEvento.jpg'
+					      })
+				        })
+				  <% }%> 
+				 <% }%>
+				}    
+			
+			
+			
+			if(window.Notification&&Notification.permission!=="denied"){
+				
+				<% if(conta){ %> 
+			      <%for(var i = 0; i < conta.length; i++){ %>
+				   
+					//console.log(descConta)
+				     	 Notification.requestPermission(function(status){
+					     var n = new Notification('Conta a pagar', {
+						 body:  "<%=conta[i].descConta%> vence em <%=conta[i].dataConta.getDate()%>/<%=(conta[i].dataConta.getMonth())+1%>/<%=conta[i].dataConta.getFullYear()%>", 
+						 icon: 'css/AppThemes/AvisoConta.jpg'
+					      })
+				        })
+				  <% }%> 
+				 <% }%>
+				}    
+			
+		
+		</script>
+    </html>

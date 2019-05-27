@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Cadastro Cargo</title>
+        <link rel="stylesheet" type="text/css" href="css/cargo.css">
+    </head>
+
+    <body>
+        	<form autocomplete="off" action='/red' method='get'>
+                <h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+            </form>
+        <h2>Edição de Cargo</h2>
+        <br>
+        <br>
+        
+        <%if(validacao.length > 0){%>
+            <div id="erro">
+                <%= validacao[0].msg %>
+            </div>
+            <% } %>	
+        <form action='/updateCargo' method='post' autocomplete='off'>
+            <% if(cargo.nome){%>
+            
+                <input type='hidden' value='<%=cargo.id%>' name='id'>
+                
+                <input name='nome' placeholder='Nome do Cargo' value = '<%=cargo.nome%>'>
+                <input  name= 'comissao' class="main" placeholder = "Comissão %" value='<%=cargo.comissao%>'></input>
+
+                <br>
+                <br>
+
+                <spam class='block'><%if(cargo.OS == 1){%>  <input type='checkbox' name='OS' checked>  <%} else{%>  <input type='checkbox' name='OS'>  <%}%>  <label>Orçamento e Ordem de Serviço</label></spam>
+        
+                <spam class='block'><%if(cargo.venda == 1){%>  <input type='checkbox' name='venda' checked>  <%} else{%>  <input type='checkbox' name='venda' >  <%}%>  <label>Venda</label></spam>
+        
+                <spam class='block'><%if(cargo.veiculo_cliente == 1){%>  <input type='checkbox' name='veiculo_cliente' checked>  <%} else{%>  <input type='checkbox' name='veiculo_cliente'>  <%}%>  <label>Cadastro e controle de Cliente/Veículo</label></spam>
+        
+                <spam class='block'><%if(cargo.fornecedor_produto == 1){%>  <input type='checkbox' name='fornecedor_produto' checked>  <%} else{%>  <input type='checkbox' name='fornecedor_produto'>  <%}%>  <label>Cadastro e controle de Fornecedor/Produto</label></spam>
+        
+                <spam class='block'><%if(cargo.funcionario == 1){%>  <input type='checkbox' name='funcionario' checked>  <%} else{%>  <input type='checkbox' name='funcionario' >  <%}%>  <label>Cadastro e controle de Funcionário</label></spam>
+        
+                <spam class='block'><%if(cargo.conta == 1){%>  <input type='checkbox' name='conta' checked>  <%} else{%>  <input type='checkbox' name='conta' >  <%}%>  <label>Cadastro e controle de Contas</label></spam>
+        
+                <spam class='block'><%if(cargo.evento == 1){%>  <input type='checkbox' name='evento' checked>  <%} else{%>  <input type='checkbox' name='evento' >  <%}%>  <label>Cadastro e controle de Eventos</label></spam>
+        
+                <spam class='block'><%if(cargo.agendamento == 1){%>  <input type='checkbox' name='agendamento' checked>  <%} else{%>  <input type='checkbox' name='agendamento'>  <%}%>  <label>Cadastro e controle de Agendamentos</label></spam>
+        
+                <spam class='block'><%if(cargo.lucro == 1){%>  <input type='checkbox' name='lucro' checked>  <%} else{%>  <input type='checkbox' name='lucro'>  <%}%>  <label>Acesso ao Lucro</label></spam>
+            
+                <spam class='block'><%if(cargo.producao_funcionario == 1){%><input type='checkbox' name='producao_funcionario' checked><%} else{%> <input type='checkbox' name='producao_funcionario'><%}%><label>Acesso à produção de todos os funcionários</label></spam>
+             <%} else{%>
+
+                <input name='nome' placeholder='Nome do Cargo'>
+
+                <spam class='block'><input type='checkbox' name='OS'><label>Orçamento e Ordem de Serviço</label></spam>
+        
+                <spam class='block'>  <input type='checkbox' name='venda'><label>Venda</label></spam>
+        
+                <spam class='block'><input type='checkbox' name='veiculo_cliente'><label>Cadastro e controle de Cliente/Veículo</label></spam>
+        
+                <spam class='block'> <input type='checkbox' name='fornecedor_produto'><label>Cadastro e controle de Fornecedor/Produto</label></spam>
+        
+                <spam class='block'></spam><input type='checkbox' name='funcionario'><label>Cadastro e controle de Funcionário</label></spam>
+        
+                <spam class='block'></spam><input type='checkbox' name='conta'><label>Cadastro e controle de Contas</label></spam>
+        
+                <spam class='block'> <input type='checkbox' name='evento'><label>Cadastro e controle de Eventos</label></spam>
+        
+                <spam class='block'><input type='checkbox' name='agendamento'><label>Cadastro e controle de Agendamentos</label></spam>
+        
+                <spam class='block'> <input type='checkbox' name='lucro'><label>Acesso aos Relatórios</label></spam>
+            
+                <spam class='block'> <input type='checkbox' name='producao_funcionario'><label>Acesso à produção de todos os funcionários</label></spam>
+            <%}%>
+            <button type='submit'>Enviar</button>
+
+        </form>  
+    </body>
+</html>

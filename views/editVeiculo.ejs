@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Cadastro Veiculo</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+
+	</head>
+	<body>
+		<div>
+			<br />
+			<br />
+					<!--
+		<% if(validacao.length>0){ %>
+			<div id="erro">
+			<%= validacao[0].msg %>
+		</div>
+		<% } %>
+	-->
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Edição de Veículo</h2>
+
+		<form autocomplete="off" action='/editVeiculo' method='POST'>
+
+			
+
+			<input id='placa' readonly="true" name='placa' value= "<%= cadastroVeiculo.placa %>" placeholder='Placa' oninput="M_placa1(this)"></input>
+
+			<input id='marca' readonly="true" name='marca' value= "<%= cadastroVeiculo.marca %>" placeholder='Marca' oninput="M_size(this)"></input>
+
+			<input id='modelo'  readonly="true" name='modelo' value= "<%= cadastroVeiculo.modelo %>" placeholder='Modelo'></input>
+
+			<input id='chassi' readonly="true" name='chassi' value= "<%= cadastroVeiculo.chassi %>" placeholder='Chassi'></input>
+
+			<input id='anoFab' readonly="true" name='anoFab' value= "<%= cadastroVeiculo.anoFab %>" placeholder='Ano de Fabricação'></input>
+
+			<input id='cor'  name='cor' value= "<%= cadastroVeiculo.cor %>" placeholder='Cor'></input>
+
+            <input id='cliente' name='cliente' value= "<%= cadastroVeiculo.cliente %>" placeholder='Proprietário' ></input>
+
+            <input id='obs' name='obs' value= "<%= cadastroVeiculo.obs %>" placeholder='Observações' width="100px"  oninput="M_sizebig(this)"></input>
+
+			<button type='submitVeiculo'> Enviar </button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html>

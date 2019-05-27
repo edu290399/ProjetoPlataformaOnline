@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>RegistroVeiculos</title>
+			<link rel="stylesheet" type="text/css" href="css/buscaGeral.css">
+		</head>
+	<body>
+	<form autocomplete="off" action='/red' method='get'>
+		<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+	</form>
+		<h2>Busca Veiculo</h2>
+
+		<table>
+			
+			<tr>
+				<td>Placa</td>
+				<td>Marca</td>
+				<td>Modelo</td>
+				<td>Chassi</td>
+				<td>Ano</td>
+                <td>Cor</td>
+                <td>Proprietário</td>
+				<td>Observacoes</td>
+				
+				
+
+            
+				
+			</tr>
+			<% if(veiculo){ %>
+			<% for(var i = 0; i < veiculo.length; i++){ %>
+				<tr>
+					<td>
+						<form action = '/editV' method = 'POST'>
+							<input class = 'id' id='<%=veiculo[i].placa%>' type='submit' name='placa' value='<%= veiculo[i].placa %>'>
+						</form>
+					</td>
+					
+					<td><%= veiculo[i].marca %></td>
+					<td><%= veiculo[i].modelo%></td>
+					<td><%= veiculo[i].chassi%></td>
+					<td><%= veiculo[i].anoFab%></td>
+					<td><%= veiculo[i].cor%></td>
+					<td><%= veiculo[i].cliente%></td>
+					<td><%= (veiculo[i].obs)%></td>
+					
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>

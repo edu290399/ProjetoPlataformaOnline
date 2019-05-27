@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = 'utf-8'/>
+		<title>Orçamento</title>
+		<link rel="stylesheet" type="text/css" href="css/emissaoOS.css">
+	</head>
+	<body>
+		<!--Imagem-->
+		<form autocomplete="off" action='/red' method='get'>
+			<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+		</form>
+		<h3>Nome da oficina: </h3>
+		<p>Cocaine Motorock - Performance Racing</p>
+		<h3>Telefone: </h3>
+		<br>
+		<h3>Técnico responsável: <%=dados.responsavel%></h3>
+		<hr>
+		<div id = 'H'>
+			<h2>Orçamento </h2>
+			<p><%= dados.datacriacao %></p>
+			
+		</div>
+                <br>
+		
+                <h3>Problemas:</h3>
+                <h4><%= dados.problema %></h4>
+
+                <br>
+				<h3>Serviço:</h3>
+                <h4>R$<%=dados.preco%></h4>
+                <br>
+                <br>
+            <table>	
+			<tr>
+				<th>Produtos</th>
+				<th>Quantidade</th>
+				<th>Valor</th>
+				<th>Desconto</th>
+                <%for(var I in produtos){%>
+                    <% if(Array.isArray(dados.produto)){%>
+                        <tr>
+                            <td><%= produtos[I].nome %></td>
+                            <td><%= dados.quantidade[I] %></td>
+                            <td>R$<%= produtos[I].valor %></td>
+                            <td>R$<%= ((produtos[I].valor)*(dados.desconto[I]/100)).toFixed(2)%></td>
+                        </tr>
+                    <%} else{%>
+                        <tr>
+                            <td><%= produtos[I].nome %></td>
+                            <td><%= dados.quantidade %></td>
+                            <td>R$<%= produtos[I].valor %></td>
+                            <td>R$<%= ((produtos[I].valor)*(dados.desconto/100)).toFixed(2)%></td>
+                        </tr>
+                    <%}%>
+				<%}%>
+		</table>
+		<hr>
+		<h2>Total: R$<%= dados.total%></h2>
+	</body>

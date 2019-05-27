@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Cadastro Cargo</title>
+        <link rel="stylesheet" type="text/css" href="css/cargo.css">
+    </head>
+
+    <body>
+            <form autocomplete="off" action='/red' method='get'>
+				<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+			</form>
+        <h2>Cadastro de Cargo</h2>
+
+        <%if(validacao.length > 0){%>
+            <div id="erro">
+                <%= validacao[0].msg %>
+            </div>
+            <% } %>	
+
+
+        <form action='/submitCargo' method='post' autocomplete='off'>
+
+
+            <div class="dropdown">
+                <input  name= 'nome' class="main" placeholder = "Nome do Cargo" ></input>
+                <input  name= 'comissao' class="main" placeholder = "Comissão %" ></input>
+                <div class="dropdown-content">
+                   <span>*Cargos com nomes duplicados não serão salvos*</span>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+
+           <spam class='block'><input type='checkbox' name='OS'><label>Orçamento e Ordem de Serviço</label></spam>
+    
+            <spam class='block'>  <input type='checkbox' name='venda'><label>Venda</label></spam>
+    
+            <spam class='block'><input type='checkbox' name='veiculo_cliente'><label>Cadastro e controle de Cliente/Veículo</label></spam>
+    
+           <spam class='block'> <input type='checkbox' name='fornecedor_produto'><label>Cadastro e controle de Fornecedor/Produto</label></spam>
+    
+            <spam class='block'><input type='checkbox' name='funcionario'><label>Cadastro e controle de Funcionário</label></spam>
+    
+            <spam class='block'><input type='checkbox' name='conta'><label>Cadastro e controle de Contas</label></spam>
+    
+            <spam class='block'> <input type='checkbox' name='evento'><label>Cadastro e controle de Eventos</label></spam>
+    
+            <spam class='block'><input type='checkbox' name='agendamento'><label>Cadastro e controle de Agendamentos</label></spam>
+    
+            <spam class='block'> <input type='checkbox' name='lucro'><label>Acesso aos Relatórios</label></spam>
+
+            <spam class='block'> <input type='checkbox' name='producao_funcionario'><label>Acesso à produção de todos os funcionários</label></spam>
+
+            <button class="enviar" type='submit'>Enviar</button>
+
+        </form>  
+    </body>
+</html>

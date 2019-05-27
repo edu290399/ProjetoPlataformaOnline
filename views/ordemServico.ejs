@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = 'utf-8'/>
+		<title>Ordem de Serviço</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+
+		<!--CSS e Sctipt para funcionamento do autocomplete-->
+		<!--Acho interessante mudar o css pra um de nossa criação-->
+		<script src="jquery/jquery.js" type="text/javascript"></script>
+		<script type="text/javascript">
+				<%if(dados){%>
+					<%if(dados.produto){%>
+						<%if(Array.isArray(dados.produto)){%>
+						/*if(<%=dados.produto.length%> >=1){*/
+							<%for(var I in dados.produto){%>
+								$(function(){
+									$('#produtos').append("<spam><input name = 'produto' class = 'produto' value = '<%= dados.produto[I]%>' placeholder = 'Código do Produto' > <input class='desconto'  type='number' name='desconto' placeholder='Desconto (%)' value='<%=dados.desconto[I]%>' min='0' max='<%=desconto.descontoMax%>' > <input type = 'number' name = 'quantidade' class = 'quantidade' value = '<%=dados.quantidade[I]%>'><button type='button' id='removebutton' class='remove_field'>Remover Campo</button><br></spam>");
+									/*$(wrapper).on("click", ".remove_field", function(e) {
+										$(this).parent('spam').remove();
+									});*/
+								});
+							<%}%>
+						<%} else{%>
+							$(function(){
+								$('#produtos').append("<spam><input name = 'produto' class = 'produto' value = '<%= dados.produto%>' placeholder = 'Produto' > <input class='desconto'  type='number' name='desconto' placeholder='Desconto (%)' value='<%=dados.desconto%>' min='0' max='<%=desconto.descontoMax%>' >  <input type = 'number' name = 'quantidade' class = 'quantidade' value = '<%=dados.quantidade%>'><button type='button' id='removebutton' class='remove_field'>Remover Campo</button><br></spam>");
+								/*$(wrapper).on("click", ".remove_field", function(e) {
+									$(this).parent('spam').remove();
+								});*/
+							});
+						<%}%>
+					<%}%>	
+				<%}%>
+		</script>
+
+
+		<script type ="text/javascript" >
+
+			$(function(){
+				var preco = $("#preco");
+				var total = 0;
+				/*$( "#preco" ).focusout(function() {
+					total = parseFloat(preco[0].value);//Preço total a ser exibido
+					$("#preco_total").remove();
+					$("#total").append("<input type='hidden' id='preco_total' name = 'total' value='"+total+"'>");//Informa o preço
+				});*/
+
+				$("#calcular").click(function(e){
+					e.preventDefault();
+
+					var produto = $("input.produto");//inputs dos produtos
+					var quant = $("input.quantidade");//inputs das quantidades
+					var desc = $("input.desconto");//inputs dos descontos
+					
+					total = parseFloat(preco[0].value);//Preço total a ser exibido
+					var quantidade = [];
+					var cod = [];//Códigos dos produtos
+					var desconto = [];
+					var controle; // Verificar se encontrou o produtos no BD
+
+					for(var I  = 0; I<quant.length; I++)
+					{	//Vetor com as quantidades informadas
+						quantidade[I] =quant[I].value;
+					}
+					for(var I  = 0; I<produto.length; I++)
+					{	//Vetor com os códigos dos produtos informados
+						
+						cod[I] =produto[I].value;
+					}
+
+					for(var I  = 0; I<produto.length; I++)
+					{	//Vetor com os descontos dos inputs
+						desconto[I] = desc[I].value;
+					}
+					$(".erro").remove();//Remove o erro antigo
+					$('.preco_produto').remove();//Remove os preços dos produtos antigos
+					
+					for(var I=0; I<cod.length; I++ ){//Percorre os códigos
+						controle = 0;
+						<% for( var J=0; J<produtosBD.length; J++){%>//Ver se os códigos estão no BD
+							if(<%=produtosBD[J].cod%> == cod[I]){
+								controle = 1;
+								if(<%=produtosBD[J].quantidade%> >= quantidade[I]){//Se o código estiver no BD atualiza o preço
+									$('#total').append('<h3 class="preco_produto">Produto '+cod[I]+' ('+'<%=produtosBD[J].nome%>'+')'+': R$'+<%=produtosBD[J].valor%>+'</h3>')
+									total += <%=(produtosBD[J].valor)%>*parseInt(quantidade[I])*(1-(parseFloat(desconto[I])/100));
+									controle = 2;
+								}
+							}
+						<%}%>
+						if(controle == 0)
+						{//Se não encontrar o produtos no BD
+							$("#total").append("<h2 class = 'erro'>Produto "+cod[I]+" não encontrado</h2>");//Informa o produtos com erro
+						}
+						else if(controle == 1){
+							$("#total").append("<h2 class = 'erro'>Quantidade do produto "+cod[I]+" não disponível</h2>");//Informa o produtos com erro
+						}	
+					}
+					$("#valor").remove();//Remove o preço antigo
+					$("#preco_total").remove();
+					$("#total").append("<input type='hidden' id='preco_total' name = 'total' value='"+total.toFixed(2)+"'><h2 id = 'valor'>Total: R$ "+total.toFixed(2)+"</h2>");//Informa o preço
+				})
+			})
+		</script>
+
+		<script type ="text/javascript">
+			$(function(){
+				var max_fields = 10;
+				var wrapper = $(".inputs");
+				var add_button = $("#adicionarcampo");
+
+
+				var x = 1;
+				$(add_button).click(function(e) {//Evento acionado ao clicar para adicionar campo
+					e.preventDefault();
+
+					if (x < max_fields) {
+						x++;
+						//Adicionar os campos Produto e quantidade
+						$(wrapper).append('<spam><input type="text" class="produto" id="produtoadd" name="produto" placeholder = "Código do Produto"> <input class="desconto"  type="number" name="desconto" placeholder="Desconto (%)" min="0" max="<%=desconto.descontoMax%>" > <input type = "number" class="quantidade" name="quantidade" id="qntdadd"  placeholder = "Quantidade" value = "1" > <button type="button" id="removebutton" class="remove_field">Remover Campo</button></spam><br>');
+					}
+
+				});
+
+				//Link para remover o campo
+				$(wrapper).on("click", ".remove_field", function(e) {
+					e.preventDefault();
+					console.log();
+					$(this).parent('spam').remove();
+					x--;
+				});
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div>
+			<br>
+			<br>
+
+			<form autocomplete="off" action='/red' method='get'>
+				<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+			</form>
+
+			<h2>Ordem de Serviço</h2>
+			<h4>*Clique em CALCULAR antes de gerar a Ordem de Serviço*</h4>
+			<% if(validacao.length>0){ %>
+				<div id="erro">
+					<%= validacao[0].msg %>
+				</div>
+			<% } %>
+
+			<form autocomplete="off" action="/submitOS"  method = "post">
+
+				<input id = 'cpf' name = 'cliente'  value = '<%= dados.cliente%>' placeholder = 'CPF do cliente' oninput='M_cpf(this)'>
+				<input id = 'placa' name = 'placa' value = '<%= dados.placa%>' placeholder = 'Placa do veículo' oninput="M_placa(this)">
+				<input name = 'problema' value = '<%= dados.problema%>' placeholder = 'Problema Constatado'>
+				<input name = 'servico' value = '<%= dados.servico%>' placeholder = 'Serviço Executado'>
+				<input name = 'responsavel' value = '<%= dados.responsavel%>' placeholder = 'ID do responsável'>
+				<input name = 'preco' class = 'total' id = 'preco' value = '<%= dados.preco%>' placeholder = 'Preço da Mão de Obra' oninput='M_number(this)'>
+				<div class = 'inputs' id='produtos'>
+					<spam>
+						<button type="button" id="adicionarcampo">Adicionar Campo</button>
+					</spam>
+				</div>
+
+				<div id='total'></div>
+
+				<button id='calcular'>Calcular</button>
+				<button type = 'submitOS' id="gerarOs" value = 'Gerar OS'>Gerar</button>
+			</form>
+		</div>
+		<script type="text/javascript" src="js/mask.js"></script>
+		<!--<script type="text/javascript" src="jquery/adicionaCampo.js"></script>-->
+		
+	</body>
+</html>

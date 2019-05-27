@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+
+	</head>
+	<body>
+		<div>
+			<h3><%=cargo%></h3>
+			<form action = '/redirect' method= 'post'>
+
+				<div class="dropdown">
+					<input type="submit"  name= "OS" class="main" value = "Ordem de Serviço" <%if(acesso.OS!=1){%>disabled style='color:red '<%}%> ></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="OS" <%if(acesso.OS!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BOS" <%if(acesso.OS!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="BuscaInter" value="Busca Placa" name="BIP" <%if(acesso.OS!=1){%>disabled style='color:red '<%}%>></input>
+					</div>
+				</div>
+
+				<div class="dropdown">
+						<input type="submit"  name= "ORC" class="main" value = "Orçamento" <%if(acesso.OS!=1){%>disabled style='color:red '<%}%>></input>		
+					</div>
+
+				<div class="dropdown">
+						<input type="submit"  name= "CP" class="main" value = "Produto"<%if(acesso.fornecedor_produto!=1){%>disabled style='color:red '<%}%>></input>
+						<div class="dropdown-content">
+							<input type="submit" class="Adicionar" value="Adicionar" name="ACP"<%if(acesso.fornecedor_produto!=1){%>disabled style='color:red '<%}%>></input>
+							<input type="submit" class="Busca" value="Busca" name="BCP"<%if(acesso.fornecedor_produto!=1){%>disabled style='color:red '<%}%>></input>
+						</div>
+					</div>
+	
+
+				<div class="dropdown">
+					<input type="submit"  name= "AClF" class="main" value = "Cliente Fisíco" <%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="AClF"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BClF"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="BuscaInter" value="Busca CPF" name="BICF"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+					</div>
+				</div>
+
+				<div class="dropdown">
+						<input type="submit"  name= "ACJ" class="main" value = "Cliente Jurídico" <%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+						<div class="dropdown-content">
+							<input type="submit" class="Adicionar" value="Adicionar" name="ACJ"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+							<input type="submit" class="Busca" value="Busca" name="BCJ"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+							<input type="submit" class="BuscaInter" value="Busca CNPJ" name="BIJ"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+						</div>
+					</div>
+
+
+				<div class="dropdown">
+					<input type="submit"  name= "CForn" class="main" value = "Fornecedor" <%if(acesso.fornecedor_produto!=1){%>disabled style='color:red '<%}%>></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="ACForn"<%if(acesso.fornecedor_produto!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BCForn"<%if(acesso.fornecedor_produto!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="BuscaInter" value="Busca CNPJ" name="BIForn"<%if(acesso.fornecedor_produto!=1){%>disabled style='color:red '<%}%>></input>
+					</div>
+				</div>
+
+				<div class="dropdown">
+					<input type="submit"  name= "CV" class="main" value = "Veículo" <%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="ACV"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BCV"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="BuscaInter" value="Busca Placa" name="BIV"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+					</div>
+				</div>
+
+				<div class="dropdown">
+						<input type="submit"  name= "ALT" class="main" value = "Registro de Alterações" <%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+						<div class="dropdown-content">
+							<input type="submit" class="Adicionar" value="Adicionar" name="ALT"<%if(acesso.veiculo_cliente!=1){%>disabled style='color:red '<%}%>></input>
+							<input type="submit" class="Busca" value="Busca" name="BALT"></input>
+						</div>
+					</div>
+
+				<div class="dropdown">
+					<input type="submit"  name= "CF" class="main" value = "Funcionário" <%if(acesso.funcionario!=1){%>disabled style='color:red '<%}%>></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="ACF"<%if(acesso.funcionario!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BCF"<%if(acesso.funcionario!=1){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="BuscaInter" value="Busca CPF" name="BIF"<%if(acesso.funcionario!=1){%>disabled style='color:red '<%}%>></input>
+					</div>
+				</div>
+
+					<div class="dropdown">
+						<input type="submit"  class="main" value = "Rendimentos" <%if(acesso.producao_funcionario!=1&&acesso.lucro!=1){%>disabled style='color:red '<%}%>></input>
+						<div class="dropdown-content">
+							<input type="submit" class="Busca" value="Comissões" name="COM" <%if(acesso.producao_funcionario!=1){%>disabled style='color:red '<%}%>></input>
+							<input type="submit" class="Busca" value="Relatórios" name="LC"<%if(acesso.lucro!=1){%>disabled style='color:red '<%}%>></input>
+						</div>	
+					</div>
+	
+				
+				<div class="dropdown">
+					<input type="submit"  name= "VD" class="main" value = "Venda de Produtos" <%if(acesso.venda!=1){%>disabled style='color:red '<%}%>></input>		
+				</div>
+				
+			
+				<div class="dropdown">
+					<input type="submit"  name= "CAR" class="main" value = "Cargos" <%if(cargo!='PROPRIETARIO'){%>disabled style='color:red '<%}%>></input>
+					<div class="dropdown-content">
+						<input type="submit" class="Adicionar" value="Adicionar" name="CAR"<%if(cargo!='PROPRIETARIO'){%>disabled style='color:red '<%}%>></input>
+						<input type="submit" class="Busca" value="Busca" name="BCAR"<%if(cargo!='PROPRIETARIO'){%>disabled style='color:red '<%}%>></input>
+					</div>
+				</div>	
+
+
+				<div class="dropdown">
+					<input type="submit" class="main" value = "Lembretes" name="Lembretes" <%if(acesso.conta!=1 && acesso.agendamento!=1 && acesso.evento!=1){%>disabled style='color:red '<%}%>></input>
+				</div>
+				
+				<div class="dropdown">
+						<input type="submit" class="sair" value = "Sair" name="sair" ></input>
+					</div>
+			</form>
+	</div>
+	</sript>
+	</body>
+	
+	
+</html>

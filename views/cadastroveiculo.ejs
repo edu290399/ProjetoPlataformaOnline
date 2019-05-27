@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Cadastro Veiculo</title>
+		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
+		
+	</head>
+	
+	<body>
+		<div>
+			<br />
+			<br />
+
+			<form autocomplete="off" action='/red' method='get'>
+				<h1><input type="submit" class="HOME" value="Início" name="HOME"></input></h1>
+			</form>
+				<h2 id="cadastroVeic">Cadastro de Veiculos</h2>
+		
+		<% if(validacao.length>0){ %>
+			<div id="erro">
+			<%= validacao[0].msg %>
+		</div>
+		<% } %>	
+
+		<form autocomplete="off" action='/submitVeiculo' method='post' encType="multipart/form-data">
+			<input id='placa' value='<%=cadastroVeiculo.placa%>' name='placa' placeholder='Placa' oninput="M_placa(this)"></input>
+			<input id='marca' value='<%=cadastroVeiculo.marca%>' name='marca' placeholder='Marca' oninput="M_size(this)"></input>
+			<input id='modelo' value='<%=cadastroVeiculo.modelo%>' name='modelo' placeholder='Modelo' oninput="M_size(this)"></input>
+			<input id='chassi' value='<%=cadastroVeiculo.chassi%>' name='chassi' placeholder='Numero do Chassi' oninput="M_chassi(this)"></input>
+			<input id='anoFab' value='<%=cadastroVeiculo.anoFab%>' name='anoFab' placeholder='Ano de Fabricação' oninput="M_chassi(this)"></input>
+			<input id='cor' value='<%=cadastroVeiculo.cor%>' name='cor' placeholder='Cor' oninput="M_size(this)"></input>
+			<input id='cliente' value='<%=cadastroVeiculo.cliente%>' name='cliente' placeholder='Proprietário' oninput="M_size(this)"></input>
+			<input id='obs' value='<%=cadastroVeiculo.obs%>' name='obs' placeholder='Observações' oninput="M_sizebig(this)"></input>
+			<input name="avatar" id="input-1" type="file" class="file">
+			<button type='submit' >Enviar</button>
+			
+		</form>
+	</div>
+	<script type="text/javascript" src="js/mask.js"></script>
+	</body>
+</html>
