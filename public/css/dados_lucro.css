@@ -1,0 +1,68 @@
+
+body{
+     background-size: cover;
+     background-image: url(AppThemes/fundoRelatorio2.jpg);
+     background-repeat: repeat;
+     background-position: center;
+     /*background-size: 230vh 100vw;*/
+     color: antiquewhite;
+}
+
+h2{
+    text-align: center;
+    font-size: 45px;
+    background-image: linear-gradient(to bottom right,rgb(61, 25, 28), rgb(37, 36, 53));
+    backface-visibility: 
+}
+
+h3{
+    display: inline-block;
+    padding-right: 70px;   
+}
+
+#ganhos{
+    margin-left: 30%;
+}
+#venda_btn{
+    margin-top: 25px;
+}
+button{
+    font-size: 17px;
+    margin-bottom: 35px;
+    display: block;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom right,rgb(114, 109, 110), rgb(61, 60, 60) );
+    padding: 3px 10px 3px 10px;
+}
+
+button:hover{
+    background-image: linear-gradient(to bottom right,rgb(56, 12, 14), rgb(48, 39, 39) );
+    color: antiquewhite;
+}
+
+th{
+    font-size: 22px;
+    padding-right: 80px;
+    padding-bottom: 40px;
+}
+td{
+    
+    font-size: 20px;
+}
+
+.HOME{
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 90%;
+	background-image: linear-gradient(to bottom right,rgb(231, 219, 219), rgb(107, 96, 96));	
+	width: min-content;
+    border-radius: 5px;
+    border-color: black;
+}
+
+.HOME:hover{
+    background-image: linear-gradient(to bottom right,rgb(102, 86, 86), rgb(48, 40, 40));
+    color: antiquewhite;
+}

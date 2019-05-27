@@ -1,0 +1,39 @@
+﻿body{
+    background-color: #00BFFF;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    
+}
+div
+{
+    width:50%;
+    padding-top:20px;
+    padding-bottom:50px;
+    margin-top:150px;
+    background-color:#ADD8E6;
+    position:relative;
+    left:25%;
+    bottom:25%;
+    height:40%;
+}
+h1 {
+    margin-bottom:30px;
+    
+}
+input {
+    display: block;
+    position:relative;
+    left:27%;
+    margin:20px;
+    font-size:16px;
+    width:40%;
+    height:40px;
+    padding-left:10px;
+}
+button{
+    margin:10px;
+    font-size:20px;
+}
+a:link{
+    color:black;
+}

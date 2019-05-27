@@ -1,0 +1,62 @@
+﻿body{
+    
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    background-image: url(AppThemes/gratisography-starlight-sign-sunset.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    background-size: 100vmax;
+    background-position: center;
+}
+div
+{
+    width:50%;
+    padding-top:20px;
+    padding-bottom:50px;
+    margin-top:150px;
+    
+    position:relative;
+    left:25%;
+    bottom:25%;
+    height:40%;
+}
+h1 {
+    margin-bottom:30px;
+    margin-right: 7%;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2{
+    margin-right: 5%;
+}
+input {
+    display: block;
+    position:relative;
+    left:25%;
+    margin:20px;
+    font-size:16px;
+    width:40%;
+    height:30px;
+    padding-left:10px;
+    border-radius: 4px;
+    
+}
+
+#enviarLogin{
+    
+    font-size:20px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 10%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: -5.5%;
+    -webkit-transition-duration: 0.3s; 
+    transition-property: 'background-image';
+    transition-duration: 0.3s;
+    cursor: pointer;
+    }
+#enviarLogin:hover{
+    color: black;
+    background-image: linear-gradient(to bottom right, rgb(238, 103, 125), rgb(172, 172, 62));
+}

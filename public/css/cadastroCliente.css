@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image: url(AppThemes/FundoCadastros.jpg);
+    background-attachment: fixed;
+    background-size: 100vw 100vh ;
+
+    background-repeat: no-repeat;
+    
+   
+}
+.file{
+    color: antiquewhite;
+   
+}
+
+#erro
+{
+    color:red;
+    font-size: 40px;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, rgb(56, 44, 46), rgb(58, 10, 10));
+    
+}
+#cadastroVeic{
+    margin-top: -1.5%;
+}
+h2 {
+   
+    color: white;
+    text-align: center;
+    font-size: 1.2cm;
+}
+h3{
+    color: white;
+    text-align: center;
+    font-size: 100%;
+}
+h4{
+    color: antiquewhite;
+    margin-left: 34.5%;
+    font-size: 18px;
+}
+input {
+    display: block;
+    position:relative;
+    left:28%;
+    margin:15px;
+    font-size:16px;
+    width:40%;
+    height:40px;
+    padding-left:10px;
+}
+#gerarOs{
+    margin:10px;
+    padding:10px;
+    font-size:20px;
+    margin-left: 45.5%;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+   
+}
+
+button:hover{
+   
+   background-color: rgb(30, 165, 30);
+}
+button{
+    
+    margin:10px;
+    padding:10px;
+    font-size:20px;
+    margin-left: 45vw;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+#number{
+    margin-right: 50%;
+    display: inline;
+    width:5%;
+}
+#produto{
+    position: relative;
+}
+#adicionarcampo{
+     padding: 7px 15px;
+     margin-left: 56.3%;
+     font-size: 15px;   
+     border-radius: 5%;
+     -webkit-transition-duration: 0.2s;
+     transition-duration: 0.2s;
+     cursor: pointer;
+     margin-top: -0.5%;
+}
+#adicionarcampo:hover{
+    color: white;
+    background-color: rgb(41, 15, 134);
+}
+.option{
+    width: min-content;
+    display: inline-block;
+    margin-left: 12%;
+    padding-right: 10px;
+      
+}
+#emite{
+    margin-left: -0.5%;
+}
+#calcular{
+    margin-left: 45.5%;
+    margin-top: 2%;
+    display: block;
+}
+.remove_field{
+    padding: 7px 15px;
+    margin-left: 56.3%;
+    font-size: 15px;
+    border-radius: 5%;
+    -webkit-transition-duration: 0.2s; 
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+.remove_field:hover{
+    color: white;
+    background-color: rgb(184, 12, 12);
+}
+
+.HOME{
+    
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 25px;
+    
+    background-image: linear-gradient(to bottom right,rgb(231, 219, 219), rgb(80, 72, 72));
+    width: max-content;
+    border-radius: 5px;
+    
+}
+
+.HOME:hover{
+    background-image: linear-gradient(to bottom right,rgb(102, 86, 86), rgb(48, 40, 40));
+    color: antiquewhite;
+}
+
+input{
+   
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: left;
+    border-collapse: collapse;
+    border-radius: 5px;
+    border-color: black;
+    margin-bottom: 10px;
+
+}
+h1 {
+    font-size: 20px;
+    margin-right: 83%;
+    text-align: center;
+    margin-top:-3.5%;
+}

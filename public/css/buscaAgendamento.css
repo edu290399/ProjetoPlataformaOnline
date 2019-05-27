@@ -1,0 +1,79 @@
+h2{
+    
+    color: black;
+    background-image: linear-gradient(to bottom right, rgba(226, 240, 28, 0.726), rgb(206, 228, 156));
+   
+    text-align: center;
+    border-radius: 5px;
+}
+
+body{
+    background-image: url(AppThemes/post-it-1239906.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 95%;
+    background-size: cover;
+    
+
+    
+}
+
+table{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: left
+    border: 1px solid rgb(119, 23, 163);
+    border-collapse: collapse;
+    margin-right:auto; 
+    margin-left:auto; 
+    width: 90%;
+    
+}
+
+td{
+    border-top: 2px solid rgb(63, 245, 18);
+    border-bottom: 2px solid rgb(151, 235, 17);
+    padding-left: 8px;      
+    white-space: nowrap;
+    width: 3cm;
+    padding: 3px;
+    
+    
+}
+#descProduto{
+    white-space: pre-wrap;
+}
+
+th{
+    padding-left: 5px;
+    white-space: nowrap;
+    text-align: left;
+    padding-bottom: 0.3cm;
+    
+    
+}
+
+
+h1{
+    margin-left: 5%;
+    margin-top: -0.8%;
+    
+}
+
+
+.HOME{
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-image: linear-gradient(to bottom right,rgb(231, 219, 219), rgb(80, 72, 72));
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.HOME:hover{
+    background-image: linear-gradient(to bottom right,rgb(102, 86, 86), rgb(48, 40, 40));
+    color: antiquewhite;
+}

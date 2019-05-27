@@ -1,0 +1,120 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image: url(AppThemes/fundo_cargo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 230vh 100vw;
+    text-align: center;
+    margin-top: 4%;
+  
+}
+
+
+
+h2 {
+   
+    color: white;
+    text-align: center;
+    font-size: 1.2cm;
+}
+
+
+
+
+button{
+    
+    margin:10px;
+    padding:10px;
+    font-size:20px;
+    margin-left: 45vw;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+
+button:hover{
+   
+    background-color: rgb(30, 165, 30);
+ }
+
+
+.HOME{
+    
+    
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 25px;
+    color: black;
+    background-image: linear-gradient(to bottom right,rgb(231, 219, 219), rgb(80, 72, 72));
+    width: max-content;
+    border-radius: 5px;
+    
+}
+
+.HOME:hover{
+    background-image: linear-gradient(to bottom right,rgb(102, 86, 86), rgb(48, 40, 40));
+    color: antiquewhite;
+}
+
+input{
+   
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: left;
+    border-collapse: collapse;
+    border-radius: 5px;
+    border-color: black;
+    margin-bottom: 10px;
+    
+
+}
+
+.dropdown {
+    
+    position: relative;
+    display: inline-block;
+    width: 45%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120%;
+    margin-left: -60%;
+    z-index: 1;
+    background: none;
+    
+}
+
+.dropdown:hover .dropdown-content {
+    
+    margin-left: -9%;
+    color: antiquewhite;
+    display: block;
+}
+h1 {
+    font-size: 20px;
+    margin-right: 83%;
+    text-align: center;
+    margin-top:-3.5%;
+}
+
+.main{
+    margin: 30px;
+    text-align: center;
+}
+.block{
+    display:block;
+    font-size: 20px;
+    color: antiquewhite;
+    text-align: left;
+    margin-left: 40%;
+}
+.enviar{
+    margin-right: 46%;
+    margin-top: 35px;
+}

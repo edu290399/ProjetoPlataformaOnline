@@ -1,0 +1,49 @@
+#H{
+    display: inline;
+    font-size: 20px;
+}
+body{
+    background-image: linear-gradient(to bottom right, rgb(141, 139, 139), rgb(52, 52, 73));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 95%;
+    background-size: cover;    
+}
+p{
+	display: inline;
+    margin-right:30%;
+    font-size: 20px;
+}
+td{
+    
+    margin-right:30%;
+    padding: 5px;
+    padding-right: 20px;
+}
+table{
+    text-align: center;
+    font-size: 20px;
+}
+.HOME{
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 90%;
+	background-image: linear-gradient(to bottom right,rgb(231, 219, 219), rgb(107, 96, 96));	
+	width: min-content;
+    border-radius: 5px;
+    border-color: black;
+}
+
+.HOME:hover{
+    background-image: linear-gradient(to bottom right,rgb(102, 86, 86), rgb(48, 40, 40));
+    color: antiquewhite;
+}
+h3{
+    display: inline;
+    font-size: 20px;
+}
+h4{
+    display: inline;
+}

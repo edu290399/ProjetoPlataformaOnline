@@ -1,0 +1,117 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: #808080;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin-top: -1%;
+    padding:0;
+    background-image: url(AppThemes/engine-1526233.jpg);
+    background-size: cover;
+}
+h1{
+    margin-left: -85%;
+    
+    
+}
+.HOME{
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-image: linear-gradient(to bottom right,rgb(231, 219, 219), rgb(80, 72, 72));
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.HOME:hover{
+    background-image: linear-gradient(to bottom right,rgb(102, 86, 86), rgb(48, 40, 40));
+    color: antiquewhite;
+}
+
+.main{
+    display: inline-block;
+    margin:10px;
+    padding:10px;
+    margin-top: 30px;
+    font-size:20px;
+    width:100%;
+    position: relative;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom right, rgba(20, 18, 18, 0.726), rgb(63, 50, 50));
+    color: antiquewhite;
+    transition-property: background-image , color;
+    -webkit-transition-duration: 0.5s, 0.5s; 
+    transition-duration: 0.5s, 0.5s;
+    cursor: pointer;
+    margin-top: 4%;
+}
+
+input:hover{
+    color: black;
+    background-image: linear-gradient(to bottom right, rgb(122, 118, 118), rgb(161, 78, 78));
+}
+
+.dropdown {
+    
+    position: relative;
+    display: inline-block;
+    width: 50%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150%;
+    margin-left: -75%;
+    z-index: 1;
+    background: none;
+    
+}
+
+.dropdown:hover .dropdown-content {
+    
+    margin-top: -1%;
+    display: inline-block;
+}
+
+.Adicionar{
+    background-image: linear-gradient(to bottom right, rgb(39, 136, 55), rgb(200, 202, 63));
+    padding: 5px 5% 5px 5%;
+    font-size: 15px;
+    
+    border-radius: 5px;
+
+}
+.Adicionar:hover{
+    background-image: linear-gradient(to bottom right, rgb(41, 131, 56), rgb(59, 59, 30));
+    color: antiquewhite;
+}
+
+.Busca{
+    background-image: linear-gradient(to bottom right, rgb(34, 38, 241), rgb(127, 78, 190));
+    padding: 5px 5% 5px 5%;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.Busca:hover{
+    background-image: linear-gradient(to bottom right, rgb(50, 52, 177), rgb(70, 54, 95));
+    color: antiquewhite;
+}
+
+.BuscaInter{
+    background-image: linear-gradient(to bottom right, rgb(25, 26, 94), rgb(31, 168, 192));
+    padding: 5px 5% 5px 5%;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.BuscaInter:hover{
+    background-image: linear-gradient(to bottom right, rgb(17, 18, 66), rgb(68, 60, 80));
+    color: antiquewhite;
+}
+
